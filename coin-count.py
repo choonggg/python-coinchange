@@ -6,7 +6,7 @@ def testcases():
     return x
 
 def getc(i):
-    print ("Amount in cent? Case-No#: %d" % (i + 1) )
+    print ("Amount in cent? Case#: %d" % (i + 1) )
     amt = int(sys.stdin.readline())
     return amt
 
