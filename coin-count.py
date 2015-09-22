@@ -11,23 +11,25 @@ def getc(i):
     return amt
 
 def getNumOfWays(num, coins):
+    coins = sorted(coins, reverse=True)
+    ways = [0] * (num + 1)
+    ways[0] = 1
+    for coin in coins:
+        for j in range(coin, num + 1):
+            ways[j] += ways[j - coin]
 
-    return num
+    return ways[num]
 
 def main():
     cases = testcases();
-    # coins = [50, 20, 10, 5, 1]
-    coins = [3,2,1]
+    coins = [50, 20, 10, 5, 1]
+    # coins = [3,2,1]
     caseNum = []
 
     for i in range(0, cases):
         caseNum.append(getc(i))
     for x in range(len(caseNum)):
         num = caseNum[x]
-        print ("Case #%d: %d" % ( x + 1 , getNumOfWays(num, coins)) )
+        print ("Case #{}: {}".format( x + 1 , getNumOfWays(num, coins)) )
 
 main()
-# for case in caseNum :
-
-# print ("You entered x amount of cases, x= " + str(cases))
-# print(caseNum)
