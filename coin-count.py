@@ -5,15 +5,29 @@ def testcases():
     x = int(sys.stdin.readline())
     return x
 
-def getc():
-    print ("How much coins in cents?")
+def getc(i):
+    print ("Amount in cent? Case-No#: %d" % (i + 1) )
     amt = int(sys.stdin.readline())
     return amt
 
-cases = testcases();
-amount = getc()
-coins = [50, 20, 10, 5, 1]
+def getNumOfWays(num, coins):
 
-print ("You entered x amount of cases, x= " + str(cases))
-print ("You entered an amount of " + str(amount))
-print (coins)
+    return num
+
+def main():
+    cases = testcases();
+    # coins = [50, 20, 10, 5, 1]
+    coins = [3,2,1]
+    caseNum = []
+
+    for i in range(0, cases):
+        caseNum.append(getc(i))
+    for x in range(len(caseNum)):
+        num = caseNum[x]
+        print ("Case #%d: %d" % ( x + 1 , getNumOfWays(num, coins)) )
+
+main()
+# for case in caseNum :
+
+# print ("You entered x amount of cases, x= " + str(cases))
+# print(caseNum)
